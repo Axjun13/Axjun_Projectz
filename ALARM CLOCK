@@ -1,0 +1,25 @@
+play =()=>{
+    let audio = new Audio("http://princezze.free.fr/sounds/alert3.MP3")
+    audio.play()
+}
+
+const E1 = document.getElementById("hr");
+const E2 = document.getElementById("min");
+const E3 = document.getElementById("sec");
+
+function check()
+{
+const date = new Date()
+var hour,mins,secs
+hour = E1.value
+mins = E2.value
+secs = E3.value
+if (hour == date.getHours()){
+    if (mins == date.getMinutes()){
+        if (secs == date.getSeconds()){
+            setInterval(play,1000)
+        }
+    }
+}
+}
+check()
