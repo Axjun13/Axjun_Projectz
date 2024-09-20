@@ -1,0 +1,35 @@
+let storobj = window.localStorage
+
+let date = new Date()
+
+document.body.innerHTML = "WELCOME TO YOUR TO DO LIST!!!<br>"
+
+const add = ()=>{
+    let a = prompt("Write The Task You Want To Add:")
+    storobj.setItem(a , "Not Done")
+}
+
+const show = ()=>{
+    for ( let i =0 ; i < storobj.length ; i++){
+        document.body.innerHTML+=`<br>${storobj.key(i)} ---> ${storobj.getItem(storobj.key(i))}<br>`
+    }
+    document.body.innerHTML+=`~~~~~~~~~~~~~~~~~~<br>`
+}
+
+const del=()=>{
+    let a = prompt("Enter The task That You Want to Delete:")
+    let k=1
+    for (let i=0; i<storobj.length; i++){
+        if (a != storobj.key(i)){
+            k=0
+        }
+        else{
+            k=1
+            break
+        }
+    }
+    storobj.removeItem(a)
+    if (k==0){
+        alert("TASK NOT FOUND")
+    }
+}
